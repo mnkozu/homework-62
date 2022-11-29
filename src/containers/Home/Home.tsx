@@ -3,6 +3,7 @@ import Goods from "../../components/Goods/Goods";
 import Cart from "../../components/Cart/Cart";
 import {CartGood, Good} from "../../types";
 import './Home.css';
+import TitleBlock from "../../components/TitleBlock/TitleBlock";
 
 interface Props {
   goods: Good[];
@@ -13,19 +14,12 @@ interface Props {
 const Home: React.FC<Props> = ({goods, cartGoods, addToCart}) => {
   return (
     <>
-      <figure className="text-end ozgocho-main text-white py-4">
-        <blockquote className="blockquote">
-          <h1 className="display-3">OZGOCHO - for the elite</h1>
-        </blockquote>
-        <figcaption className="blockquote-footer text-white">
-          <cite title="Source Title">each of our clients is special for us</cite>
-        </figcaption>
-      </figure>
+      <TitleBlock/>
       <div className="row mt-2">
-        <div className="col-7">
+        <div className="col-8 px-4">
           <Goods goods={goods} addToCart={addToCart}/>
         </div>
-        <div className="col-5">
+        <div className="col-4">
           <Cart cartGoods={cartGoods}/>
         </div>
       </div>

@@ -5,12 +5,13 @@ import Home from "./containers/Home/Home";
 import AboutUs from "./containers/AboutUs/AboutUs";
 import Contacts from "./containers/Contacts/Contacts";
 import {CartGood, Good} from "./types";
-import './App.css';
 
 import logoIMG from './assets/logo.jpeg';
 import dior from './assets/dior.jpeg';
 import gucci from './assets/gucci.jpeg';
 import gerunsi from './assets/gerunsi.jpeg';
+import Checkout from "./containers/Checkout/Checkout";
+import Order from "./containers/Order/Order";
 
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
     <>
       <header>
         <Navbar logo={logoIMG}/>
-        <main className="container-fluid main">
+        <main className="container-fluid">
           <Routes>
             <Route path="/" element={(
               <Home
@@ -59,6 +60,16 @@ function App() {
             )}/>
             <Route path="/contacts" element={(
               <Contacts/>
+            )}/>
+            <Route path="/checkout" element={(
+              <Checkout cartGoods={cartGoods}/>
+            )}>
+              <Route path="continue" element={(
+                <Order/>
+              )}/>
+            </Route>
+            <Route path="*" element={(
+              <h1>Not found!</h1>
             )}/>
           </Routes>
         </main>
